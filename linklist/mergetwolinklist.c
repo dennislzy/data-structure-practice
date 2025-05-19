@@ -33,11 +33,13 @@ Nodes* mergeTwoLinklist(Nodes* nodes1,Nodes* nodes2){
     {
         tail->next = nodes1;
         nodes1= nodes1->next;
+        tail = tail->next;
     }
     while (nodes2!=NULL)
     {
         tail->next = nodes2;
         nodes2= nodes2->next;
+        tail = tail->next;
     }
     return dummy.next; //回傳dummy下一個節點
 }
