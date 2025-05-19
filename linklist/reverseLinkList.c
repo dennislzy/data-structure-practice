@@ -5,19 +5,19 @@ typedef struct Nodes{
     Nodes* next;
 } Nodes;
 
-Nodes reverseLinkList(Nodes nodes){
+Nodes* reverseLinkList(Nodes* nodes){
     if (nodes == NULL){
         return NULL;
     }
 
-    Nodes prev = NULL;
-    Nodes cur = nodes;
+    Nodes* prev = NULL;
+    Nodes* cur = nodes;
 
     while (cur!=NULL){
-        Nodes next = cur->next;
+        Nodes* next = cur->next;
         cur->next = prev;
         prev = cur;
         cur = next;
     }
-    return nodes;
+    return prev;
 }
