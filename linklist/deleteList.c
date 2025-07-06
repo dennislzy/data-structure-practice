@@ -27,3 +27,21 @@ Nodes* deleteList(Nodes* nodes,int val){
     }
     return nodes;
 }
+
+//刪除尾巴節點（遞歸版本）
+Nodes* deleteLinkList(Nodes* head){
+    if (head == NULL){
+        return NULL;
+    }
+    if (head->next == NULL){
+        free(head);
+        return NULL;
+    }
+    if (head->next->next == NULL){
+        free(head);
+        head->next = NULL;
+        return head;
+    }
+    head->next = deleteLinkList(head->next);
+    return head;
+}

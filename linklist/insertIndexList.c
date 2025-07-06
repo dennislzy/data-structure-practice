@@ -28,3 +28,16 @@ Nodes insertLinkList(struct Nodes nodes,int index){
     insertNodes->next = next;
     return nodes;
 }
+
+//新增尾巴節點(遞歸版本)
+Nodes* insertAtTail(struct Nodes* head,struct Nodes* newNodes){
+    if (head == NULL){
+        return newNodes;
+    }
+    if (head->next == NULL){
+        head->next = newNodes;
+        return head;
+    }
+    head->next = insertAtTail(head->next,newNodes);
+    return head;
+}

@@ -18,4 +18,17 @@ bool hasCycle(int graph[N][N],int v,int parent){
             }
         }
     }
+    return false;
+}
+
+//處理整張圖
+bool containCycle(int graph[][]){
+    for (int i=0;i<N;i++){
+        if (!visited[i]){
+            if (hasCycle(graph,i,-1)){
+                return true;
+            }
+        }
+    }
+    return false;
 }
