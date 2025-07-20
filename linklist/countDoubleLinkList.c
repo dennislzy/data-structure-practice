@@ -17,3 +17,22 @@ int countDoubleNodes(DoubleNodes* doubleNodes){
     }while(cur!=doubleNodes);
     return count;
 }
+
+int findHub(int graph[N][N]) {
+    int maxConnections = 0;
+    int hubIndex = 0;
+    
+    for (int i = 0; i < N; i++) {
+        int connections = 0;
+        for (int j = 0; j < N; j++) {
+            if (graph[i][j] == 1) {
+                connections++;
+            }
+        }
+        if (connections > maxConnections) {
+            maxConnections = connections;
+            hubIndex = i;
+        }
+    }
+    return hubIndex;
+}
